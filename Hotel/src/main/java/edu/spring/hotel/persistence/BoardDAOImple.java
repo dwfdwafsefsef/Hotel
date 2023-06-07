@@ -26,43 +26,43 @@ public class BoardDAOImple implements BoardDAO {
 	
 	@Override
 	public int insert(BoardVO vo) {
-		logger.info("insert() í˜¸ì¶œ : vo = " + vo);
+		logger.info("insert() È£Ãâ : vo = " + vo);
 		return sqlSession.insert(NAMESPACE + ".insert", vo);
 	}
 
 	@Override
 	public List<BoardVO> selectAllDefault() {
-		logger.info("selectAllDefault() í˜¸ì¶œ");
+		logger.info("selectAllDefault() È£Ãâ");
 		return sqlSession.selectList(NAMESPACE + ".select_all_default");
 	}
 
 	@Override
 	public List<BoardVO> selectAllReplyCnt() {
-		logger.info("selectAllReplyCnt() í˜¸ì¶œ");
+		logger.info("selectAllReplyCnt() È£Ãâ");
 		return sqlSession.selectList(NAMESPACE + ".select_all_reply_cnt");
 	}
 
 	@Override
 	public BoardVO select(int boardId) {
-		logger.info("select() í˜¸ì¶œ : boardId = " + boardId);
+		logger.info("select() È£Ãâ : boardId = " + boardId);
 		return sqlSession.selectOne(NAMESPACE + ".select_by_board_id", boardId);
 	}
 
 	@Override
 	public int update(BoardVO vo) {
-		logger.info("update() í˜¸ì¶œ : vo = " + vo);
+		logger.info("update() È£Ãâ : vo = " + vo);
 		return sqlSession.update(NAMESPACE + ".update", vo);
 	}
 
 	@Override
 	public int delete(int boardId) {
-		logger.info("delete() í˜¸ì¶œ : boardId = " + boardId);
+		logger.info("delete() È£Ãâ : boardId = " + boardId);
 		return sqlSession.delete(NAMESPACE + ".delete", boardId);
 	}
 
 	@Override
 	public List<BoardVO> selectByTitleOrContent(String keyword, int start, int end) {
-		logger.info("selectByTitleOrContent() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("selectByTitleOrContent() È£Ãâ : keyword = " + keyword);
 		Map<String, Object> args = new HashMap<>();
 		args.put("keyword", "%" + keyword + "%");
 		args.put("start", start);
@@ -72,7 +72,7 @@ public class BoardDAOImple implements BoardDAO {
 
 	@Override
 	public List<BoardVO> selectByMemberId(String keyword, int start, int end) {
-		logger.info("selectByMemberId() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("selectByMemberId() È£Ãâ : keyword = " + keyword);
 		Map<String, Object> args = new HashMap<>();
 		args.put("keyword", "%" + keyword + "%");
 		args.put("start", start);
@@ -82,7 +82,7 @@ public class BoardDAOImple implements BoardDAO {
 
 	@Override
 	public List<BoardVO> select(PageCriteria criteria) {
-		logger.info("select() í˜¸ì¶œ");
+		logger.info("select() È£Ãâ");
 		logger.info("start = " + criteria.getStart());
 		logger.info("end = " + criteria.getEnd());
 		return sqlSession.selectList(NAMESPACE + ".paging", criteria);
@@ -90,25 +90,25 @@ public class BoardDAOImple implements BoardDAO {
 
 	@Override
 	public int getTotalCounts() {
-		logger.info("getTotalCounts() í˜¸ì¶œ");
+		logger.info("getTotalCounts() È£Ãâ");
 		return sqlSession.selectOne(NAMESPACE + ".total_count");
 	}
 	
 	@Override
 	public int getTotalCountsByTitleOrContent(String keyword) {
-		logger.info("getTotalCountsByTitleOrContent() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("getTotalCountsByTitleOrContent() È£Ãâ : keyword = " + keyword);
 		return sqlSession.selectOne(NAMESPACE + ".total_count_by_title_or_content", "%" + keyword + "%");
 	}
 
 	@Override
 	public int getTotalCountsByMemberId(String keyword) {
-		logger.info("getTotalCountsByMemberId() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("getTotalCountsByMemberId() È£Ãâ : keyword = " + keyword);
 		return sqlSession.selectOne(NAMESPACE + ".total_count_by_member_id", "%" + keyword + "%");
 	}
 
 	@Override
 	public int updateReplyCnt(int amount, int boardId) {
-		logger.info("updateReplyCnt() í˜¸ì¶œ");
+		logger.info("updateReplyCnt() È£Ãâ");
 		logger.info("amount = " + amount);
 		logger.info("boardId = " + boardId);
 		Map<String, Integer> args = new HashMap<>();
@@ -119,7 +119,7 @@ public class BoardDAOImple implements BoardDAO {
 
 	@Override
 	public int selectBoardCnt(String memberId) {
-		logger.info("selectBoardCnt() í˜¸ì¶œ : memberId = " + memberId);
+		logger.info("selectBoardCnt() È£Ãâ : memberId = " + memberId);
 		return sqlSession.selectOne(NAMESPACE + ".select_board_cnt", memberId);
 	}
 

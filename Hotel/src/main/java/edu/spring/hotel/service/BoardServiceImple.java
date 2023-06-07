@@ -22,13 +22,13 @@ public class BoardServiceImple implements BoardService {
 	
 	@Override
 	public int create(BoardVO vo) {
-		logger.info("create() í˜¸ì¶œ : vo = " + vo.toString());
+		logger.info("create() È£Ãâ : vo = " + vo.toString());
 		return dao.insert(vo);
 	}
 
 	@Override
 	public List<BoardVO> read(PageCriteria criteria) {
-		logger.info("read() í˜¸ì¶œ");
+		logger.info("read() È£Ãâ");
 		logger.info("start : " + criteria.getStart());
 		logger.info("end : " + criteria.getEnd());
 		return dao.select(criteria);
@@ -36,49 +36,49 @@ public class BoardServiceImple implements BoardService {
 	
 	@Override
 	public BoardVO read(int boardId) {
-		logger.info("read() í˜¸ì¶œ : boardId = " + boardId);
+		logger.info("read() È£Ãâ : boardId = " + boardId);
 		return dao.select(boardId);
 	}
 
 	@Override
 	public int update(BoardVO vo) {
-		logger.info("update() í˜¸ì¶œ : vo = " + vo.toString());
+		logger.info("update() È£Ãâ : vo = " + vo.toString());
 		return dao.update(vo);
 	}
 
 	@Override
 	public int delete(int boardId) {
-		logger.info("delete() í˜¸ì¶œ : boardId = " + boardId);
+		logger.info("delete() È£Ãâ : boardId = " + boardId);
 		return dao.delete(boardId);
 	}
 
 	@Override
 	public int getTotalCounts() {
-		logger.info("getTotalCounts() í˜¸ì¶œ");
+		logger.info("getTotalCounts() È£Ãâ");
 		return dao.getTotalCounts();
 	}
 	
 	@Override
 	public int getTotalCountsByTitleOrContent(String keyword) {
-		logger.info("getTotalCountsByTitleOrContent() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("getTotalCountsByTitleOrContent() È£Ãâ : keyword = " + keyword);
 		return dao.getTotalCountsByTitleOrContent(keyword);
 	}
 
 	@Override
 	public int getTotalCountsByMemberId(String keyword) {
-		logger.info("getTotalCountsByMemberId() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("getTotalCountsByMemberId() È£Ãâ : keyword = " + keyword);
 		return dao.getTotalCountsByMemberId(keyword);
 	}
 
 	@Override
 	public List<BoardVO> readByTitleOrContent(String keyword, int start, int end) {
-		logger.info("readByTitleContent() í˜¸ì¶œ");
+		logger.info("readByTitleContent() È£Ãâ");
 		return dao.selectByTitleOrContent(keyword, start, end);
 	}
 
 	@Override
 	public List<BoardVO> readByMemberId(String keyword, int start, int end) {
-		logger.info("readByMemberId() í˜¸ì¶œ");
+		logger.info("readByMemberId() È£Ãâ");
 		return dao.selectByMemberId(keyword, start, end);
 	}
 

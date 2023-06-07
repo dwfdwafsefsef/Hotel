@@ -20,13 +20,13 @@ public class RoomServiceImple implements RoomService {
 	
 	@Override
 	public List<RoomVO> read(int hotelId) {
-		logger.info("read() í˜¸ì¶œ : hotelId = " + hotelId);
+		logger.info("read() È£Ãâ : hotelId = " + hotelId);
 		return dao.selectByHotelId(hotelId);
 	}
 
 	@Override
 	public RoomVO selectRead(int roomId) {
-		logger.info("selectRead() í˜¸ì¶œ : roomId = " + roomId);
+		logger.info("selectRead() È£Ãâ : roomId = " + roomId);
 		return dao.select(roomId);
 	}
 

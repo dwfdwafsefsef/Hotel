@@ -6,33 +6,33 @@ import edu.spring.hotel.domain.BoardVO;
 import edu.spring.hotel.pageutil.PageCriteria;
 
 public interface BoardDAO {
-	// ê²Œì‹œê¸€ ë“±ë¡
+	// °Ô½Ã±Û µî·Ï
 	int insert(BoardVO vo);
-	// ê²Œì‹œê¸€ ì „ì²´ê²€ìƒ‰(ê¸°ë³¸/ìµœì‹ ìˆœ)
+	// °Ô½Ã±Û ÀüÃ¼°Ë»ö(±âº»/ÃÖ½Å¼ø)
 	List<BoardVO> selectAllDefault();
-	// ê²Œì‹œê¸€ ì „ì²´ê²€ìƒ‰(ëŒ“ê¸€ ë§ì€ ìˆœ)
+	// °Ô½Ã±Û ÀüÃ¼°Ë»ö(´ñ±Û ¸¹Àº ¼ø)
 	List<BoardVO> selectAllReplyCnt();
-	// ê²Œì‹œê¸€ ìƒì„¸ê²€ìƒ‰
+	// °Ô½Ã±Û »ó¼¼°Ë»ö
 	BoardVO select(int boardId);
-	// ê²Œì‹œê¸€ ìˆ˜ì •
+	// °Ô½Ã±Û ¼öÁ¤
 	int update(BoardVO vo);
-	// ê²Œì‹œê¸€ ì‚­ì œ
+	// °Ô½Ã±Û »èÁ¦
 	int delete(int boardId);
-	// ê²Œì‹œê¸€ ì œëª© ë˜ëŠ” ë‚´ìš©ì„ í‚¤ì›Œë“œë¡œ ê²€ìƒ‰
+	// °Ô½Ã±Û Á¦¸ñ ¶Ç´Â ³»¿ëÀ» Å°¿öµå·Î °Ë»ö
 	List<BoardVO> selectByTitleOrContent(String keyword, int start, int end);
-	// ê²Œì‹œê¸€ ì‘ì„±ìë¥¼ í‚¤ì›Œë“œë¡œ ê²€ìƒ‰
+	// °Ô½Ã±Û ÀÛ¼ºÀÚ¸¦ Å°¿öµå·Î °Ë»ö
 	List<BoardVO> selectByMemberId(String keyword, int start, int end);
-	// í˜ì´ì§• ì²˜ë¦¬ë¥¼ ìœ„í•œ ì „ì²´ê²€ìƒ‰
+	// ÆäÀÌÂ¡ Ã³¸®¸¦ À§ÇÑ ÀüÃ¼°Ë»ö
 	List<BoardVO> select(PageCriteria criteria);
-	// ì „ì²´ ê²Œì‹œê¸€ ìˆ˜ ë¶ˆëŸ¬ì˜¤ê¸°
+	// ÀüÃ¼ °Ô½Ã±Û ¼ö ºÒ·¯¿À±â
 	int getTotalCounts();
-	// ì œëª© ë˜ëŠ” ë‚´ìš©ìœ¼ë¡œ ê²€ìƒ‰í–ˆì„ ë•Œ ê²Œì‹œê¸€ ìˆ˜ ë¶ˆëŸ¬ì˜¤ê¸°
+	// Á¦¸ñ ¶Ç´Â ³»¿ëÀ¸·Î °Ë»öÇßÀ» ¶§ °Ô½Ã±Û ¼ö ºÒ·¯¿À±â
 	int getTotalCountsByTitleOrContent(String keyword);
-	// ì‘ì„±ì ì•„ì´ë””ë¡œ ê²€ìƒ‰í–ˆì„ ë•Œ ê²Œì‹œê¸€ ìˆ˜ ë¶ˆëŸ¬ì˜¤ê¸°
+	// ÀÛ¼ºÀÚ ¾ÆÀÌµğ·Î °Ë»öÇßÀ» ¶§ °Ô½Ã±Û ¼ö ºÒ·¯¿À±â
 	int getTotalCountsByMemberId(String keyword);
-	// ëŒ“ê¸€ ìˆ˜ì •, ì‚­ì œ ì‹œ ëŒ“ê¸€ ê°œìˆ˜ ìˆ˜ì •
+	// ´ñ±Û ¼öÁ¤, »èÁ¦ ½Ã ´ñ±Û °³¼ö ¼öÁ¤
 	int updateReplyCnt(int amount, int boardId);
-	// ë‚´ê°€ ì‘ì„±í•œ ê²Œì‹œê¸€ ìˆ˜ ì¡°íšŒ
+	// ³»°¡ ÀÛ¼ºÇÑ °Ô½Ã±Û ¼ö Á¶È¸
 	int selectBoardCnt(String memberId);
 	
 } // end BoardDAO

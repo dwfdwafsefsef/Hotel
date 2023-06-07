@@ -28,12 +28,12 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
-	@GetMapping("/list") // board íŒŒì¼ì˜ list.jsp
+	@GetMapping("/list") // board ÆÄÀÏÀÇ list.jsp
 	public void list(Model model, String keyword, String searchType, Integer page, Integer numsPerPage) {
-		logger.info("list() í˜¸ì¶œ");
+		logger.info("list() È£Ãâ");
 		
 
-		// í˜ì´ì§• ì²˜ë¦¬
+		// ÆäÀÌÂ¡ Ã³¸®
 		PageCriteria criteria = new PageCriteria();
 		
 		if (page != null) {
@@ -71,9 +71,9 @@ public class BoardController {
 
 	} // end list()
 
-	@GetMapping("/register") // board íŒŒì¼ì˜ register.jsp
+	@GetMapping("/register") // board ÆÄÀÏÀÇ register.jsp
 	public String registerGET(HttpSession session) {
-		logger.info("registerGET() í˜¸ì¶œ");
+		logger.info("registerGET() È£Ãâ");
 		String memberId = (String) session.getAttribute("memberId");
 
 		if (memberId != null) {
@@ -86,10 +86,10 @@ public class BoardController {
 
 	@PostMapping("/register")
 	public String registerPOST(BoardVO vo, RedirectAttributes reAttr) {
-		logger.info("registerPOST() í˜¸ì¶œ");
+		logger.info("registerPOST() È£Ãâ");
 		logger.info(vo.toString());
 		int result = boardService.create(vo);
-		logger.info(result + "í–‰ ì‚½ì…");
+		logger.info(result + "Çà »ğÀÔ");
 
 		if (result == 1) {
 			reAttr.addFlashAttribute("result", "registerSuccess");
@@ -99,25 +99,25 @@ public class BoardController {
 		}
 	} // end registerPOST()
 
-	@GetMapping("/detail") // board íŒŒì¼ì˜ detail.jsp
+	@GetMapping("/detail") // board ÆÄÀÏÀÇ detail.jsp
 	public void detailGET(Model model, Integer boardId, Integer page) {
-		logger.info("detailGET() í˜¸ì¶œ : boardId = " + boardId);
+		logger.info("detailGET() È£Ãâ : boardId = " + boardId);
 		BoardVO vo = boardService.read(boardId);
 		model.addAttribute("vo", vo);
 		model.addAttribute("page", page);
 	} // end detailGET()
 
-	@GetMapping("/update") // board íŒŒì¼ì˜ update.jsp
+	@GetMapping("/update") // board ÆÄÀÏÀÇ update.jsp
 	public void updateGET(Model model, Integer boardId, Integer page) {
-		logger.info("updateGET() í˜¸ì¶œ : boardId = " + boardId);
+		logger.info("updateGET() È£Ãâ : boardId = " + boardId);
 		BoardVO vo = boardService.read(boardId);
 		model.addAttribute("vo", vo);
 		model.addAttribute("page", page);
 	} // end updateGET()
 
-	@PostMapping("/update") // board íŒŒì¼ì˜ update.jsp
+	@PostMapping("/update") // board ÆÄÀÏÀÇ update.jsp
 	public String updatePOST(BoardVO vo, Integer page, RedirectAttributes reAttr) {
-		logger.info("updatePOST() í˜¸ì¶œ : vo = " + vo.toString());
+		logger.info("updatePOST() È£Ãâ : vo = " + vo.toString());
 		int result = boardService.update(vo);
 		if (result == 1) {
 			reAttr.addFlashAttribute("result", "updateSuccess");
@@ -127,12 +127,12 @@ public class BoardController {
 		}
 	} // end updatePOST()
 
-	@PostMapping("/delete") // board íŒŒì¼ì˜ delete.jsp
+	@PostMapping("/delete") // board ÆÄÀÏÀÇ delete.jsp
 	public String deletePOST(Integer boardId, RedirectAttributes reAttr) {
-		logger.info("delete() í˜¸ì¶œ : boardId = " + boardId);
+		logger.info("delete() È£Ãâ : boardId = " + boardId);
 		int result = boardService.delete(boardId);
 		if (result == 1) {
-			// í‚¤-ê°’ ì „ì†¡
+			// Å°-°ª Àü¼Û
 			reAttr.addFlashAttribute("result", "deleteSuccess");
 			return "redirect:/board/list";
 		} else {

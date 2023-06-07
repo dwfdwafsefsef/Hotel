@@ -22,55 +22,55 @@ public class HotelServiceImple implements HotelService {
 
 	@Override
 	public HotelVO read(int hotelId) {
-		logger.info("read()í˜¸ì¶œ : hotelId = " + hotelId);
+		logger.info("read()È£Ãâ : hotelId = " + hotelId);
 		return hotelDAO.select(hotelId);
-	} // end read ìƒì„¸ê²€ìƒ‰
+	} // end read »ó¼¼°Ë»ö
 
 	@Override
 	public List<HotelVO> read(PageCriteria criteria) {
-		logger.info("read()í˜¸ì¶œ");
+		logger.info("read()È£Ãâ");
 		return hotelDAO.select(criteria);
-	} // end readAll ì „ì²´ ê²€ìƒ‰(í˜ì´ì§• ì²˜ë¦¬)
+	} // end readAll ÀüÃ¼ °Ë»ö(ÆäÀÌÂ¡ Ã³¸®)
 
 	@Override
 	public int getTotalCounts() {
-		logger.info("getTotalCounts()í˜¸ì¶œ");
+		logger.info("getTotalCounts()È£Ãâ");
 		return hotelDAO.getTotalCounts();
-	} // end getTotalCounts ì „ì²´ í˜¸í…” ìˆ˜ ë¶ˆëŸ¬ì˜¤ê¸° 
+	} // end getTotalCounts ÀüÃ¼ È£ÅÚ ¼ö ºÒ·¯¿À±â 
 	
 	@Override
 	public int getTotalCountsByHotelName(String keyword) {
-		logger.info("getTotalCountsByHotelName() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("getTotalCountsByHotelName() È£Ãâ : keyword = " + keyword);
 		return hotelDAO.getTotalCountsByHotelName(keyword);
 	}
 	
 	@Override
 	public List<HotelVO> readOrderByReviewDesc(PageCriteria criteria) {
-		logger.info("readOrderByReviewDesc() í˜¸ì¶œ");
+		logger.info("readOrderByReviewDesc() È£Ãâ");
 		return hotelDAO.selectAllByReviewDesc(criteria);
-	} // end readOrderByReviewDesc ë¦¬ë·° ë‚´ë¦¼ì°¨ìˆœ ì „ì²´ ê²€ìƒ‰
+	} // end readOrderByReviewDesc ¸®ºä ³»¸²Â÷¼ø ÀüÃ¼ °Ë»ö
 
 	@Override
 	public List<HotelVO> readOrderByReviewAvgDesc(PageCriteria criteria) {
-		logger.info("readOrderByReviewAvgDesc() í˜¸ì¶œ");
+		logger.info("readOrderByReviewAvgDesc() È£Ãâ");
 		return hotelDAO.selectAllByReviewAvgDesc(criteria);
 	}
 
 	@Override
 	public List<HotelVO> readOrderByHotelNameAsc(PageCriteria criteria) {
-		logger.info("readOrderByHotelNameDesc() í˜¸ì¶œ");
+		logger.info("readOrderByHotelNameDesc() È£Ãâ");
 		return hotelDAO.selectAllByHotelNameAsc(criteria);
 	}
 
 	@Override
 	public List<HotelVO> readByHotelName(String keyword, PageCriteria criteria) {
-		logger.info("readByHotelName() í˜¸ì¶œ : keyword = " + keyword);
+		logger.info("readByHotelName() È£Ãâ : keyword = " + keyword);
 		return hotelDAO.selectByHotelName(keyword, criteria);
 	}
 
 	@Override
 	public List<HotelVO> readByHeart(String memberId) {
-		logger.info("readByHeart() í˜¸ì¶œ : memberId = " + memberId);
+		logger.info("readByHeart() È£Ãâ : memberId = " + memberId);
 		return hotelDAO.selectByHeart(memberId);
 	}
 

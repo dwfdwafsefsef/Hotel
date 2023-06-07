@@ -8,24 +8,24 @@ import edu.spring.hotel.pageutil.PageCriteria;
 //CRUD(Create, Read, Update, Delete)
 
 public interface BoardService {
-	// ê²Œì‹œê¸€ ì‘ì„±
+	// °Ô½Ã±Û ÀÛ¼º
 	int create(BoardVO vo);
-	// ê²Œì‹œê¸€ ì „ì²´ ì½ê¸°
+	// °Ô½Ã±Û ÀüÃ¼ ÀĞ±â
 	List<BoardVO> read(PageCriteria criteria);
-	// ê²Œì‹œê¸€ ì œëª© ë˜ëŠ” ë‚´ìš©ìœ¼ë¡œ ê²€ìƒ‰
+	// °Ô½Ã±Û Á¦¸ñ ¶Ç´Â ³»¿ëÀ¸·Î °Ë»ö
 	List<BoardVO> readByTitleOrContent(String keyword, int start, int end);
-	// ê²Œì‹œê¸€ ì‘ì„±ìë¡œ ê²€ìƒ‰
+	// °Ô½Ã±Û ÀÛ¼ºÀÚ·Î °Ë»ö
 	List<BoardVO> readByMemberId(String keyword, int start, int end);
-	// ê²Œì‹œê¸€ í•˜ë‚˜ ì½ê¸°
+	// °Ô½Ã±Û ÇÏ³ª ÀĞ±â
 	BoardVO read(int boardId);
-	// ê²Œì‹œê¸€ ìˆ˜ì •
+	// °Ô½Ã±Û ¼öÁ¤
 	int update(BoardVO vo);
-	// ê²Œì‹œê¸€ ì‚­ì œ
+	// °Ô½Ã±Û »èÁ¦
 	int delete(int boardId);
-	// ì „ì²´ ê²Œì‹œê¸€ ìˆ˜ ë°›ì•„ì˜¤ê¸°
+	// ÀüÃ¼ °Ô½Ã±Û ¼ö ¹Ş¾Æ¿À±â
 	int getTotalCounts();
-	// ì œëª© ë˜ëŠ” ë‚´ìš©ìœ¼ë¡œ ê²€ìƒ‰í–ˆì„ ë•Œ ê²Œì‹œê¸€ ìˆ˜ ë°›ì•„ì˜¤ê¸°
+	// Á¦¸ñ ¶Ç´Â ³»¿ëÀ¸·Î °Ë»öÇßÀ» ¶§ °Ô½Ã±Û ¼ö ¹Ş¾Æ¿À±â
 	int getTotalCountsByTitleOrContent(String keyword);
-	// ì‘ì„±ì ì•„ì´ë””ë¡œ ê²€ìƒ‰í–ˆì„ ë•Œ ê²Œì‹œê¸€ ìˆ˜ ë°›ì•„ì˜¤ê¸°
+	// ÀÛ¼ºÀÚ ¾ÆÀÌµğ·Î °Ë»öÇßÀ» ¶§ °Ô½Ã±Û ¼ö ¹Ş¾Æ¿À±â
 	int getTotalCountsByMemberId(String keyword);
 }

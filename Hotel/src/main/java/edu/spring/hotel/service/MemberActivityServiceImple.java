@@ -36,7 +36,7 @@ public class MemberActivityServiceImple implements MemberActivityService {
 
 	@Override
 	public MemberActivity read(String memberId) {
-		logger.info("read() í˜¸ì¶œ : memberId = " + memberId);
+		logger.info("read() È£Ãâ : memberId = " + memberId);
 		Date memberDateCreated = memberDAO.selectMemberDateCreated(memberId);
 		int boardCnt = boardDAO.selectBoardCnt(memberId);
 		int replyCnt = replyDAO.selectReplyCnt(memberId);
