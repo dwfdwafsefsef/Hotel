@@ -32,18 +32,18 @@ public class IndexController {
 
 	@Autowired
 	private HotelService hotelService;
-
+	// ?
 	@Autowired
 	private RoomService roomService;
 
 	@GetMapping
 	public String indexGET(Model model, Integer page, Integer numsPerPage, String sortBy, String keyword,
 			RedirectAttributes reAttr) {
-		logger.info("indexGET() 호출");
+		logger.info("indexGET() �샇異�");
 		logger.info("page = " + page + ", numsPerPage = " + numsPerPage);
-		logger.info("정렬 방식 : " + sortBy);
+		logger.info("�젙�젹 諛⑹떇 : " + sortBy);
 		logger.info(keyword);
-		// 페이징 처리
+		// �럹�씠吏� 泥섎━
 		PageCriteria criteria = new PageCriteria();
 		if (page != null) {
 			criteria.setPage(page);
@@ -51,7 +51,7 @@ public class IndexController {
 		if (numsPerPage != null) {
 			criteria.setNumsPerPage(numsPerPage);
 		}
-
+//s
 		List<HotelVO> list = null;
 		PageMaker pageMaker = new PageMaker();
 		
@@ -81,7 +81,7 @@ public class IndexController {
 			model.addAttribute("list", list);
 		}
 		
-		// keyword 검색 키워드가 있으면
+		// keyword 寃��깋 �궎�썙�뱶媛� �엳�쑝硫�
 		if (keyword != null) {
 			list = hotelService.readByHotelName(keyword, criteria);
 			pageMaker.setCriteria(criteria);
@@ -89,21 +89,21 @@ public class IndexController {
 			pageMaker.setPageData();
 			model.addAttribute("list", list);
 
-			// keyword 값이 없으면(검색결과가 없으면)
+			// keyword 媛믪씠 �뾾�쑝硫�(寃��깋寃곌낵媛� �뾾�쑝硫�)
 			if (list.isEmpty()) {
 				reAttr.addFlashAttribute("result", "searchFail");
 				return "redirect:/";
 			} 
 		}
 		
-		model.addAttribute("sortBy", sortBy); // 정렬별 순서때 페이징 처리가 제 기능을 하려면 쿼리스트링을 유지해주어야 함
+		model.addAttribute("sortBy", sortBy); // �젙�젹蹂� �닚�꽌�븣 �럹�씠吏� 泥섎━媛� �젣 湲곕뒫�쓣 �븯�젮硫� 荑쇰━�뒪�듃留곸쓣 �쑀吏��빐二쇱뼱�빞 �븿
 		model.addAttribute("pageMaker", pageMaker);
 		return "index";
 	} // end indexGET()
 
 	@GetMapping("/detail")
 	public void detailGET(Model model, Integer hotelId, Integer page) {
-		logger.info("detailGET() 호출 : hotelId = " + hotelId);
+		logger.info("detailGET() �샇異� : hotelId = " + hotelId);
 		HotelVO hvo = hotelService.read(hotelId);
 		List<RoomVO> list = roomService.read(hotelId);
 		model.addAttribute("list", list);
@@ -113,7 +113,7 @@ public class IndexController {
 
 	@GetMapping("/login")
 	public String loginGET() {
-		logger.info("loginGET() 호출");
+		logger.info("loginGET() �샇異�");
 		return "redirect:/member/login";
 	} // end loginGET()
 
