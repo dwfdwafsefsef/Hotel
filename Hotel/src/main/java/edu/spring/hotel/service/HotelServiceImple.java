@@ -63,9 +63,9 @@ public class HotelServiceImple implements HotelService {
 	}
 
 	@Override
-	public List<HotelVO> readByHotelName(String keyword, PageCriteria criteria) {
+	public List<HotelVO> readByHotelName(String keyword, int start, int end) {
 		logger.info("readByHotelName() »£√‚ : keyword = " + keyword);
-		return hotelDAO.selectByHotelName(keyword, criteria);
+		return hotelDAO.selectByHotelName(keyword, start, end);
 	}
 
 	@Override

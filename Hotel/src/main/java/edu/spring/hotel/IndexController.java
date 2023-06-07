@@ -27,8 +27,7 @@ import edu.spring.hotel.service.RoomService;
 @Controller
 @RequestMapping(value = "/")
 public class IndexController {
-	private static final Logger logger = 
-			LoggerFactory.getLogger(IndexController.class);
+	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	@Autowired
 	private HotelService hotelService;
@@ -55,7 +54,18 @@ public class IndexController {
 		List<HotelVO> list = null;
 		PageMaker pageMaker = new PageMaker();
 		
-		if (sortBy == null || sortBy.equals("")) {
+		if (keyword != null) {
+			sortBy = "검색없음";
+			
+			list = hotelService.readByHotelName(keyword, criteria.getStart(), criteria.getEnd());
+			pageMaker.setCriteria(criteria);
+			pageMaker.setTotalCount(hotelService.getTotalCountsByHotelName(keyword));
+			pageMaker.setPageData();
+			model.addAttribute("list", list);
+
+		}
+
+		if (sortBy == null || sortBy.equals("") || keyword == null || keyword.equals("")) {
 			list = hotelService.read(criteria);
 			pageMaker.setCriteria(criteria);
 			pageMaker.setTotalCount(hotelService.getTotalCounts());
@@ -81,20 +91,6 @@ public class IndexController {
 			model.addAttribute("list", list);
 		}
 		
-		// keyword 검색 키워드가 있으면
-		if (keyword != null) {
-			list = hotelService.readByHotelName(keyword, criteria);
-			pageMaker.setCriteria(criteria);
-			pageMaker.setTotalCount(hotelService.getTotalCountsByHotelName(keyword));
-			pageMaker.setPageData();
-			model.addAttribute("list", list);
-
-			// keyword 값이 없으면(검색결과가 없으면)
-			if (list.isEmpty()) {
-				reAttr.addFlashAttribute("result", "searchFail");
-				return "redirect:/";
-			} 
-		}
 		
 		model.addAttribute("sortBy", sortBy); // 정렬별 순서때 페이징 처리가 제 기능을 하려면 쿼리스트링을 유지해주어야 함
 		model.addAttribute("pageMaker", pageMaker);

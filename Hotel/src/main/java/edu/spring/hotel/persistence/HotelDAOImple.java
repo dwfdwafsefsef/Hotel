@@ -80,12 +80,12 @@ public class HotelDAOImple implements HotelDAO{
 	}
 
 	@Override
-	public List<HotelVO> selectByHotelName(String keyword, PageCriteria criteria) {
+	public List<HotelVO> selectByHotelName(String keyword, int start, int end) {
 		logger.info("selectByHotelName() »£√‚ : keyword = " + keyword);
 		Map<String, Object> args = new HashMap<>();
 		args.put("keyword", "%" + keyword + "%");
-		args.put("start", criteria.getStart());
-		args.put("end", criteria.getEnd());
+		args.put("start", start);
+		args.put("end", end);
 		return sqlSession.selectList(NAMESPACE + ".select_by_hotel_name", args);
 	}
 
