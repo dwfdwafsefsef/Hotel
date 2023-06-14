@@ -165,7 +165,7 @@
 						        + '<input type="hidden" id="replyId" value="' + this.replyId + '">'
 						        + this.memberId + '님의 댓글 :'
 						        + '&nbsp;&nbsp;'
-						        + '<input type="text" ' + readonly + ' id="replyContent" value="' + this.replyContent + '">'
+						        + '<textarea ' + readonly + ' id="replyContent">' + this.replyContent + '</textarea>'
 						        + '&nbsp;&nbsp;'
 						        + replyDate
 						        + '&nbsp;&nbsp;'

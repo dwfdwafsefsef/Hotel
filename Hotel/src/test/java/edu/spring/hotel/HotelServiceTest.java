@@ -38,7 +38,7 @@ public class HotelServiceTest {
 	}
 
 	private void testReadByHeart() {
-		logger.info("testReadByHeart() 호출");
+		logger.info("testReadByHeart() �샇異�");
 		List<HotelVO> list = Service.readByHeart("test");
 		for (HotelVO vo : list) {
 			logger.info(vo.toString());
@@ -46,43 +46,43 @@ public class HotelServiceTest {
 		
 	}
 
-	private void testSelectByHotelName() {
-		logger.info("testSelectByHotelName() 호출");
-		List<HotelVO> list = Service.readByHotelName("", null);
-		for (HotelVO vo : list) {
-			logger.info(vo.toString());
-		}		
-	}
+//	private void testSelectByHotelName() {
+//		logger.info("testSelectByHotelName() �샇異�");
+//		List<HotelVO> list = Service.readByHotelName("", null);
+//		for (HotelVO vo : list) {
+//			logger.info(vo.toString());
+//		}		
+//	}
 
 	private void testGetTotalCounts() {
-		logger.info("count()호출");
+		logger.info("count()�샇異�");
 		int totalCounts = Service.getTotalCounts();
-		logger.info("전체 호텔 수 : " + totalCounts);
+		logger.info("�쟾泥� �샇�뀛 �닔 : " + totalCounts);
 		
 	}
 
 	private void testreadPaging() {
-		logger.info("read()호출");
+		logger.info("read()�샇異�");
 		PageCriteria criteria = new PageCriteria(1, 3);
 		List<HotelVO> list = Service.read(criteria);
 		for(HotelVO vo : list) {
 			logger.info(vo.toString());
 		}
-	} // end testreadPaging 전체 검색 페이징처리 
+	} // end testreadPaging �쟾泥� 寃��깋 �럹�씠吏뺤쿂由� 
 
 	private void testreadAllReviewDesc() {
-//		logger.info("read()호출");
+//		logger.info("read()�샇異�");
 //		List<HotelVO> list = Service.readOrderByReviewDesc();
 //		for(HotelVO vo : list) {
 //			logger.info(vo.toString());
 //		}
-	} // end testreadAllReviewDesc 리뷰 내림차순 	
+	} // end testreadAllReviewDesc 由щ럭 �궡由쇱감�닚 	
 
 	private void testread() {
 		HotelVO vo = Service.read(1);
 		logger.info(vo.toString());
 		
-	} // end testread 상세 검색
+	} // end testread �긽�꽭 寃��깋
 
 
 

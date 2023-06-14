@@ -1,0 +1,24 @@
+diff a/Hotel/src/main/java/edu/spring/hotel/IndexController.java b/Hotel/src/main/java/edu/spring/hotel/IndexController.java	(rejected hunks)
+@@ -32,18 +32,18 @@
+ 
+ 	@Autowired
+ 	private HotelService hotelService;
+-	// ?
++
+ 	@Autowired
+ 	private RoomService roomService;
+ 
+ 	@GetMapping
+ 	public String indexGET(Model model, Integer page, Integer numsPerPage, String sortBy, String keyword,
+ 			RedirectAttributes reAttr) {
+-		logger.info("indexGET() �샇異�");
++		logger.info("indexGET() 호출");
+ 		logger.info("page = " + page + ", numsPerPage = " + numsPerPage);
+-		logger.info("�젙�젹 諛⑹떇 : " + sortBy);
++		logger.info("정렬 방식 : " + sortBy);
+ 		logger.info(keyword);
+-		// �럹�씠吏� 泥섎━
++		// 페이징 처리
+ 		PageCriteria criteria = new PageCriteria();
+ 		if (page != null) {
+ 			criteria.setPage(page);

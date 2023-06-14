@@ -163,11 +163,9 @@
                 <span id="messagePhone"></span>
             </div>
             <div>
-                <label for="memberEmail">이메일</label>
-                <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일 입력" required>
-                <button id="sendEmailBtn">인증번호 발송</button>
-            </div>
-            <input type="text" name="sendEmailNum" placeholder="인증번호 입력" required>
+            	<label for="memberEmail">이메일</label>
+          		<input type="text" name="memberEmail" id="memberEmail" placeholder="이메일 입력" required>
+       		</div>
             <input type="submit" id="registerBtn" value="회원가입">
         </form>
     </div>

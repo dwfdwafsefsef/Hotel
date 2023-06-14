@@ -55,43 +55,32 @@ public class IndexController {
 		PageMaker pageMaker = new PageMaker();
 		
 		if (keyword != null) {
-			sortBy = "검색없음";
-			
+			sortBy = "검색없음";	
 			list = hotelService.readByHotelName(keyword, criteria.getStart(), criteria.getEnd());
-			pageMaker.setCriteria(criteria);
 			pageMaker.setTotalCount(hotelService.getTotalCountsByHotelName(keyword));
-			pageMaker.setPageData();
 			model.addAttribute("list", list);
-
 		}
 
-		if (sortBy == null || sortBy.equals("") || keyword == null || keyword.equals("")) {
+		if ((sortBy == null || sortBy.equals("")) && (keyword == null || keyword.equals(""))) {
 			list = hotelService.read(criteria);
-			pageMaker.setCriteria(criteria);
 			pageMaker.setTotalCount(hotelService.getTotalCounts());
-			pageMaker.setPageData();
 			model.addAttribute("list", list);
 		} else if (sortBy.equals("hotelName")) {
 			list = hotelService.readOrderByHotelNameAsc(criteria);
-			pageMaker.setCriteria(criteria);
 			pageMaker.setTotalCount(hotelService.getTotalCounts());
-			pageMaker.setPageData();
 			model.addAttribute("list", list);
 		} else if (sortBy.equals("hotelReviewCnt")) {
 			list = hotelService.readOrderByReviewDesc(criteria);
-			pageMaker.setCriteria(criteria);
 			pageMaker.setTotalCount(hotelService.getTotalCounts());
-			pageMaker.setPageData();
 			model.addAttribute("list", list);
 		} else if (sortBy.equals("hotelReviewAvg")) {
 			list = hotelService.readOrderByReviewAvgDesc(criteria);
-			pageMaker.setCriteria(criteria);
 			pageMaker.setTotalCount(hotelService.getTotalCounts());
-			pageMaker.setPageData();
 			model.addAttribute("list", list);
 		}
 		
-		
+		pageMaker.setCriteria(criteria);
+		pageMaker.setPageData();
 		model.addAttribute("sortBy", sortBy); // 정렬별 순서때 페이징 처리가 제 기능을 하려면 쿼리스트링을 유지해주어야 함
 		model.addAttribute("pageMaker", pageMaker);
 		return "index";
