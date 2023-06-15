@@ -38,7 +38,7 @@
 	}
 
 	50% {
-		transform: scale(1.2);
+		transform: scale(1.5);
 	}
 
 	100% {
@@ -297,7 +297,7 @@ label {
 }
 @keyframes rotating {
   0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  100% { transform: rotate(2000deg); }
 }
 
 .reviewStar {
@@ -403,9 +403,9 @@ label {
 	</div>
 
 	<c:if test="${not empty sessionScope.memberId }">
-		<h2>예약하기(객실을 먼저 선택해주세요!)</h2>
+		<!-- <h2>예약하기(객실을 먼저 선택해주세요!)</h2> -->
 		<form id="reservation-form" action="member/createReservation"
-			method="POST">
+			method="POST" style="display: none;">
 			<input type="hidden" name="hotelId" value="${hvo.hotelId }">
 			<input type="hidden" name="memberId"
 				value="${sessionScope.memberId }"> <input type="hidden"
@@ -645,6 +645,7 @@ label {
          $('.selectRoom').click(function(){
         	 	var roomId = $(this).prev('.roomId').val();
         	    getRoomById(roomId);
+        	    $('#reservation-form').css('display', 'block');
         	}); // end selectRoom.click() 
 
         	function getRoomById(roomId) {
@@ -697,7 +698,6 @@ label {
         	    	$('input[name=totalPrice]').val(totalPrice);
         	    }
         	  });
-
         	}); 
          
          // 하트 버튼 클릭 했을 때

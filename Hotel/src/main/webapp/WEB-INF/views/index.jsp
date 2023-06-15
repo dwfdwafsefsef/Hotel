@@ -239,7 +239,7 @@ body {
 		<div class="form-group">
 			<label for="keyword" class="mr-2" style="font-size: 18px;">호텔명
 				검색 :</label> <input type="text" id="keyword" name="keyword"
-				class="form-control mr-2" style="width: 300px;">
+				class="form-control mr-2" style="width: 300px;" required>
 			<button type="submit" class="btn btn-primary">검색</button>
 		</div>
 	</form>
