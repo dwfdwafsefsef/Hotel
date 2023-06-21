@@ -329,9 +329,11 @@ label {
 		src="<spring:url value="/resources/hotelImg/main.png"/>"></a>
 	<a href="./?page=${page}"><button id="listBtn">호텔목록</button></a>
 	<img style="width: 500px; height: auto;" src="<spring:url value='${hvo.hotelImg }'/>"><br>
+	
 	<span id="heartBtn">
   		<i id="heartIcon" class="far fa-heart"></i>
 	</span>
+	
 	<input type="hidden" id="hotelId" value="${hvo.hotelId }">
 	<h2>호텔명 : ${hvo.hotelName}</h2>
 	<h3>별점 평균 (${hvo.hotelReviewAvg } / 5)</h3>

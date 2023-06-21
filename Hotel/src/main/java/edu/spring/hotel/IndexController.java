@@ -55,23 +55,25 @@ public class IndexController {
 		List<HotelVO> list = null;
 		PageMaker pageMaker = new PageMaker();
 		
-		if (keyword != null) {
-			sortBy = "검색없음";	
+		if (keyword != null) {	
 			list = hotelService.readByHotelName(keyword, criteria.getStart(), criteria.getEnd());
 			pageMaker.setTotalCount(hotelService.getTotalCountsByHotelName(keyword));
 			model.addAttribute("list", list);
 		} else if (sortBy == null || sortBy.equals("")) {
 			list = hotelService.read(criteria);
+			pageMaker.setTotalCount(hotelService.getTotalCounts());
 		} else if (sortBy.equals("hotelName")) {
 			list = hotelService.readOrderByHotelNameAsc(criteria);
+			pageMaker.setTotalCount(hotelService.getTotalCounts());
 		} else if (sortBy.equals("hotelReviewCnt")) {
 			list = hotelService.readOrderByReviewDesc(criteria);
+			pageMaker.setTotalCount(hotelService.getTotalCounts());
 		} else if (sortBy.equals("hotelReviewAvg")) {
 			list = hotelService.readOrderByReviewAvgDesc(criteria);
+			pageMaker.setTotalCount(hotelService.getTotalCounts());
 		}
 		
 		pageMaker.setCriteria(criteria);
-		pageMaker.setTotalCount(hotelService.getTotalCounts());
 		pageMaker.setPageData();
 		model.addAttribute("sortBy", sortBy);
 		model.addAttribute("list", list);
